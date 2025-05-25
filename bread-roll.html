@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bread Roll - Sweet Treats by Krish</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/sweet-treats-css.css">
+    <script src="js/cart.js"></script><script src="js/app.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Sweet Treats <span>by Krish</span></div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="sweet-treats-website.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contacts</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="login.html">Login / Sign Up</a></li>
+                    <li><a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i> 
+                        <span class="cart-count">0</span>
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="breadcrumb" style="margin: 20px 0;">
+            <a href="sweet-treats-website.html">Home</a> > <a href="products.html">Products</a> > <a href="pastry.html">Pastry</a> > Bread Roll
+        </div>
+
+        <div class="product-detail-container">
+            <div class="product-image-container">
+                <img src="img/bread-roll.png" alt="Bread Roll" class="product-main-image" id="mainImage">
+                <div class="product-thumbnails">
+                    <img src="img/bread-roll.png" alt="Bread Roll - Image 1" class="product-thumbnail active" onclick="changeImage(this, 'img/bread-roll.png')">
+                    <img src="img/bread-roll-alt1.jpg" alt="Bread Roll - Image 2" class="product-thumbnail" onclick="changeImage(this, 'img/bread-roll-alt1.jpg')">
+                    <img src="img/bread-roll-alt2.jpg" alt="Bread Roll - Image 3" class="product-thumbnail" onclick="changeImage(this, 'img/bread-roll-alt2.jpg')">
+                </div>
+            </div>
+            
+            <div class="product-info-container">
+                <h1 class="product-title">Bread Roll</h1>
+                <div class="product-price">₱240-₱260</div>
+                <div class="product-rating" style="margin-bottom: 20px;">
+                    ★★★★☆ <span style="color: #666; margin-left: 10px;">(28 reviews)</span>
+                </div>
+                <p class="product-description">
+                    Our soft and fluffy Bread Rolls are perfect for any occasion. Made with premium flour and baked to golden perfection, these rolls have a slightly sweet taste and buttery aroma that will delight your senses.
+                </p>
+                
+                <div class="product-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Category:</span>
+                        <span>Pastry</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Quantity:</span>
+                        <span>6 pieces per box</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Ingredients:</span>
+                        <span>Premium flour, butter, sugar, yeast, milk, eggs, salt</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Allergens:</span>
+                        <span>Contains gluten, dairy, eggs</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Shelf Life:</span>
+                        <span>2 days at room temperature, 1 week frozen</span>
+                    </div>
+                </div>
+                
+                <form class="add-to-cart-form">
+                    <div class="quantity-selector">
+                        <button type="button" class="quantity-btn" onclick="decreaseQuantity()">-</button>
+                        <input type="number" class="quantity-input" id="quantity" value="1" min="1" max="10">
+                        <button type="button" class="quantity-btn" onclick="increaseQuantity()">+</button>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="bread-roll-variant">Bread Roll Options:</label>
+                        <select id="bread-roll-variant" class="form-control" onchange="updatePrice()">
+                            <option value="cheese">Cheese Rolls 5pcs - ₱240</option>
+                            <option value="almond">Almond Rolls 5pcs - ₱260</option>
+                            <option value="porkfloss">Pork Floss 5pcs - ₱240</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="add-to-cart-btn" onclick="addToCart()">
+                        <span>Add to Cart</span>
+                        <span>🛒</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="product-tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="openTab('description')">Description</button>
+                <button class="tab-btn" onclick="openTab('serving')">Serving Suggestions</button>
+            </div>
+            
+            <div id="description" class="tab-content active">
+                <h3>Product Details</h3>
+                <p>Our Bread Rolls are made using traditional techniques with a slow fermentation process that develops flavor and texture. Each roll is hand-shaped and baked fresh daily. The result is a light, airy interior with a slightly crisp exterior that's perfect for any meal.</p>
+                <p>These rolls freeze well - simply thaw at room temperature and warm in the oven for 5 minutes at 350°F to restore freshness. Can be customized with various toppings (sesame seeds, poppy seeds, or herbs) upon request.</p>
+            </div>
+            
+            <div id="serving" class="tab-content">
+                <h3>Serving Suggestions</h3>
+                <ul>
+                    <li>Serve warm with butter or jam for breakfast</li>
+                    <li>Perfect as dinner rolls with soups and stews</li>
+                    <li>Use for mini sandwiches or sliders</li>
+                    <li>Toast and top with avocado for a healthy snack</li>
+                    <li>Make bread pudding with leftover rolls</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="related-products">
+            <h2 class="section-title">You May Also Like</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="img/bread-roll.png" alt="Bread Roll" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Bread Roll</h3>
+                        <p class="product-price">₱240-₱260</p>
+                        <a href="bread-roll.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/cinnamon-roll.png" alt="Cinnamon Roll" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Cinnamon Rolls</h3>
+                        <p class="product-price">₱400</p>
+                        <a href="cinnamon-roll.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/ensaymada.png" alt="Ensaymada" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Premium Ensaymada</h3>
+                        <p class="product-price">₱220</p>
+                        <a href="ensaymada.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/brownies.png" alt="Brownies" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Brownies</h3>
+                        <p class="product-price">₱200</p>
+                        <a href="brownies.html" class="btn">View Product</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Sweet Treats by Krish</h3>
+                    <p>Bringing sweetness to your life with our handcrafted desserts and treats.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="sweet-treats-website.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: info@sweettreatsbykrish.com</li>
+                        <li>Phone: (123) 456-7890</li>
+                        <li>Address: 123 Bakery Lane, Sweet City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Sweet Treats by Krish. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function changeImage(thumbnail, newImageSrc) {
+            document.getElementById('mainImage').src = newImageSrc;
+            document.querySelectorAll('.product-thumbnail').forEach(img => {
+                img.classList.remove('active');
+            });
+            thumbnail.classList.add('active');
+        }
+        function increaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue < 10) {
+                quantityInput.value = currentValue + 1;
+            }
+        }
+        function decreaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        }
+        function openTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+        function updatePrice() {
+            const variant = document.getElementById('bread-roll-variant').value;
+            const priceElement = document.querySelector('.product-price');
+            if (variant === 'almond') {
+                priceElement.textContent = '₱260';
+            } else {
+                priceElement.textContent = '₱240';
+            }
+        }
+        function addToCart() {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const variant = document.getElementById('bread-roll-variant').value;
+            let price = 240;
+            let name = 'Cheese Rolls 5pcs';
+            if (variant === 'almond') {
+                price = 260;
+                name = 'Almond Rolls 5pcs';
+            } else if (variant === 'porkfloss') {
+                price = 240;
+                name = 'Pork Floss 5pcs';
+            }
+            if (isNaN(quantity) || quantity < 1) {
+                alert('Please select a valid quantity.');
+                return;
+            }
+            if (!window.SweetTreatsCart) {
+                alert('Cart system not ready. Please try again in a moment.');
+                return;
+            }
+            const result = window.SweetTreatsCart.addItem(
+                name,
+                price,
+                quantity,
+                'img/bread-roll.png'
+            );
+            if (result.success) {
+                alert(`${quantity} ${name} added to cart!`);
+            } else {
+                alert(result.message || 'Failed to add item to cart');
+            }
+        }
+        window.changeImage = changeImage;
+        window.increaseQuantity = increaseQuantity;
+        window.decreaseQuantity = decreaseQuantity;
+        window.openTab = openTab;
+        window.updatePrice = updatePrice;
+        window.addToCart = addToCart;
+    });
+    </script>
+    <div id="cartPopup" class="cart-popup-overlay" style="display:none;">
+      <div class="cart-popup">
+        <button class="close-cart" id="closeCartPopup">&times;</button>
+        <h3>Your Cart</h3>
+        <ul id="popupCartItems"></ul>
+        <div class="cart-popup-total">
+          Total: ₱<span id="popupCartTotal">0.00</span>
+        </div>
+        <div class="cart-popup-notes">
+          <label for="cartNotes">Personal Notes:</label>
+          <textarea id="cartNotes" rows="3" placeholder="Add any notes or instructions here..."></textarea>
+        </div>
+        <button id="popupCheckoutBtn" class="checkout-btn">Checkout</button>
+      </div>
+    </div>
+</body>
+</html>

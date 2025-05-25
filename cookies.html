@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chocolate Chip Cookies - Sweet Treats by Krish</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/sweet-treats-css.css">
+    <script src="js/cart.js" defer></script><script src="js/app.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Sweet Treats <span>by Krish</span></div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="sweet-treats-website.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contacts</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="login.html">Login / Sign Up</a></li>
+                    <li><a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i> 
+                        <span class="cart-count">0</span>
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="breadcrumb" style="margin: 20px 0;">
+            <a href="sweet-treats-website.html">Home</a> > <a href="products.html">Products</a> > <a href="confectionery.html">Confectionery</a> > Chocolate Chip Cookies
+        </div>
+
+        <div class="product-detail-container">
+            <div class="product-image-container">
+                <img src="img/choco-chip.png" alt="Chocolate Chip Cookies" class="product-main-image" id="mainImage">
+                <div class="product-thumbnails">
+                    <img src="img/choco-chip.png" alt="Chocolate Chip Cookies - Image 1" class="product-thumbnail active" onclick="changeImage(this, 'img/choco-chip.png')">
+                    <img src="img/choco-chip-alt1.jpg" alt="Chocolate Chip Cookies - Image 2" class="product-thumbnail" onclick="changeImage(this, 'img/choco-chip-alt1.jpg')">
+                    <img src="img/choco-chip-alt2.jpg" alt="Chocolate Chip Cookies - Image 3" class="product-thumbnail" onclick="changeImage(this, 'img/choco-chip-alt2.jpg')">
+                </div>
+            </div>
+            
+            <div class="product-info-container">
+                <h1 class="product-title">Chocolate Chip Cookies</h1>
+                <div class="product-price">₱140-₱280</div>
+                <div class="product-rating" style="margin-bottom: 20px;">
+                    ★★★★★ <span style="color: #666; margin-left: 10px;">(63 reviews)</span>
+                </div>
+                <p class="product-description">
+                    Our classic Chocolate Chip Cookies are crispy on the edges, chewy in the center, and loaded with premium chocolate chips. Made with real butter and brown sugar for that perfect caramelized flavor everyone loves.
+                </p>
+                
+                <div class="product-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Category:</span>
+                        <span>Confectionery</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Size Options:</span>
+                        <span>Small (12 cookies), Large (24 cookies)</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Ingredients:</span>
+                        <span>Flour, butter, brown sugar, eggs, chocolate chips, vanilla, baking soda, salt</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Allergens:</span>
+                        <span>Contains gluten, dairy, eggs</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Shelf Life:</span>
+                        <span>1 week at room temperature, 2 weeks refrigerated</span>
+                    </div>
+                </div>
+                
+                <form class="add-to-cart-form">
+                    <div class="quantity-selector">
+                        <button type="button" class="quantity-btn" onclick="decreaseQuantity()">-</button>
+                        <input type="number" class="quantity-input" id="quantity" value="1" min="1" max="10">
+                        <button type="button" class="quantity-btn" onclick="increaseQuantity()">+</button>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="size">Size:</label>
+                        <select id="size" class="form-control" onchange="updatePrice()">
+                            <option value="4pcs">4 pcs - ₱140</option>
+                            <option value="8pcs">8 pcs - ₱280</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="doneness">Preferred Doneness:</label>
+                        <select id="doneness" class="form-control">
+                            <option value="standard">Standard (Chewy center, crisp edges)</option>
+                            <option value="soft">Soft-baked</option>
+                            <option value="crispy">Extra Crispy</option>
+                        </select>
+                    </div>
+                    
+                    <button type="button" class="add-to-cart-btn" onclick="addToCart()">
+                        <span>Add to Cart</span>
+                        <span>🛒</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="product-tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="openTab('description')">Description</button>
+                <button class="tab-btn" onclick="openTab('storage')">Storage Tips</button>
+            </div>
+            
+            <div id="description" class="tab-content active">
+                <h3>Product Details</h3>
+                <p>Our Chocolate Chip Cookies are made with a special blend of semi-sweet and milk chocolate chips for balanced sweetness. The dough is chilled for 24 hours before baking to develop flavor and ensure perfect texture. Each cookie is hand-scooped for that homemade look and feel.</p>
+                <p>Available in two sizes and three doneness levels to suit your preference. Can be customized with nuts or other mix-ins upon request (additional charge may apply).</p>
+            </div>
+            
+            <div id="storage" class="tab-content">
+                <h3>Storage Tips</h3>
+                <ul>
+                    <li><strong>Room Temperature:</strong> Store in an airtight container with a slice of bread to maintain softness (replace bread daily).</li>
+                    <li><strong>Refrigerator:</strong> Place in airtight container or ziplock bag for longer storage.</li>
+                    <li><strong>Freezer:</strong> Cookies freeze well for up to 3 months. Thaw at room temperature or warm briefly in oven.</li>
+                    <li><strong>Reviving Stale Cookies:</strong> Place in microwave with a damp paper towel for 10 seconds to restore softness.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="related-products">
+            <h2 class="section-title">You May Also Like</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="img/bread-roll.png" alt="Bread Roll" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Bread Roll</h3>
+                        <p class="product-price">₱240-₱260</p>
+                        <a href="bread-roll.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/cinnamon-roll.png" alt="Cinnamon Roll" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Cinnamon Rolls</h3>
+                        <p class="product-price">₱400</p>
+                        <a href="cinnamon-roll.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/ensaymada.png" alt="Ensaymada" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Premium Ensaymada</h3>
+                        <p class="product-price">₱220</p>
+                        <a href="ensaymada.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/brownies.png" alt="Brownies" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Brownies</h3>
+                        <p class="product-price">₱200</p>
+                        <a href="brownies.html" class="btn">View Product</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Sweet Treats by Krish</h3>
+                    <p>Bringing sweetness to your life with our handcrafted desserts and treats.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="sweet-treats-website.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: info@sweettreatsbykrish.com</li>
+                        <li>Phone: (123) 456-7890</li>
+                        <li>Address: 123 Bakery Lane, Sweet City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Sweet Treats by Krish. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function updatePrice() {
+            const sizeSelect = document.getElementById('size');
+            const priceElement = document.querySelector('.product-price');
+            if (sizeSelect.value === '4pcs') {
+                priceElement.textContent = '₱140';
+            } else {
+                priceElement.textContent = '₱280';
+            }
+        }
+        
+document.addEventListener('DOMContentLoaded', function() {
+    function changeImage(thumbnail, newImageSrc) {
+        document.getElementById('mainImage').src = newImageSrc;
+        document.querySelectorAll('.product-thumbnail').forEach(img => {
+            img.classList.remove('active');
+        });
+        thumbnail.classList.add('active');
+    }
+    function increaseQuantity() {
+        const quantityInput = document.getElementById('quantity');
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue < 10) {
+            quantityInput.value = currentValue + 1;
+        }
+    }
+    function decreaseQuantity() {
+        const quantityInput = document.getElementById('quantity');
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        }
+    }
+    function openTab(tabName) {
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.getElementById(tabName).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+    function addToCart() {
+        const quantity = parseInt(document.getElementById('quantity').value);
+        const size = document.getElementById('size').value;
+        let price = 140;
+        let name = 'Cookies (4 pcs)';
+        if (size === '8pcs') {
+            price = 280;
+            name = 'Cookies (8 pcs)';
+        }
+        if (isNaN(quantity) || quantity < 1) {
+            alert('Please select a valid quantity.');
+            return;
+        }
+        if (!window.SweetTreatsCart) {
+            alert('Cart system not ready. Please try again in a moment.');
+            return;
+        }
+        const result = window.SweetTreatsCart.addItem(
+            name,
+            price,
+            quantity,
+            'img/cookies.png'
+        );
+        if (result.success) {
+            alert(`${quantity} ${name} added to cart!`);
+        } else {
+            alert(result.message || 'Failed to add item to cart');
+        }
+    }
+    window.changeImage = changeImage;
+    window.increaseQuantity = increaseQuantity;
+    window.decreaseQuantity = decreaseQuantity;
+    window.openTab = openTab;
+    window.addToCart = addToCart;
+});
+    </script>
+	
+	<div id="cartPopup" class="cart-popup-overlay" style="display:none;">
+	  <div class="cart-popup">
+		<button class="close-cart" id="closeCartPopup">&times;</button>
+		<h3>Your Cart</h3>
+		<ul id="popupCartItems"></ul>
+		<div class="cart-popup-total">
+		  Total: ₱<span id="popupCartTotal">0.00</span>
+		</div>
+		<div class="cart-popup-notes">
+		  <label for="cartNotes">Personal Notes:</label>
+		  <textarea id="cartNotes" rows="3" placeholder="Add any notes or instructions here..."></textarea>
+		</div>
+		<button id="popupCheckoutBtn" class="checkout-btn">Checkout</button>
+	  </div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Products - Sweet Treats by Krish</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/sweet-treats-css.css">
+    <script src="js/cart.js" defer></script><script src="js/app.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Sweet Treats <span>by Krish</span></div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="sweet-treats-website.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contacts</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="login.html">Login / Sign Up</a></li>
+                    <li><a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i> 
+                        <span class="cart-count">0</span>
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-banner">
+            <h1>Available Products</h1>
+            <p>Ready to take home today - freshly made treats in stock now!</p>
+        </div>
+
+        <div class="subcategory-nav">
+            <a href="#all" class="subcategory-link active">All Products</a>
+            <a href="#pastry" class="subcategory-link">Pastry</a>
+            <a href="#confectionery" class="subcategory-link">Confectionery</a>
+        </div>
+
+        <section id="all">
+            <h2 class="section-title">All Available Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="img/banana-cake.png" alt="Banana Cake" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Banana Cake</h3>
+                        <p class="product-price">₱220-₱250</p>
+                        <a href="banana-cake.png" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/garlic-bread.png" alt="Garlic Bread" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Korean Cream Cheese Garlic Bread</h3>
+                        <p class="product-price">₱300</p>
+                        <a href="ensaymada.html" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="product-card" data-id="cookies">
+                    <img src="img/choco-chip.png" alt="Cookies" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Chocolate Chip Cookies</h3>
+                        <p class="product-price">₱140-280</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="product-card" data-id="revel-bars">
+                    <img src="img/revel-bars.png" alt="Revel Bars" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Revel Bars</h3>
+                        <p class="product-price">₱300</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pastry">
+            <h2 class="section-title">Available Pastry Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="img/banana-cake.png" alt="Banana Cake" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Banana Cake</h3>
+                        <p class="product-price">₱220-₱250</p>
+                        <a href="banana-cake.png" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/garlic-bread.png" alt="Garlic Bread" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Korean Cream Cheese Garlic Bread</h3>
+                        <p class="product-price">₱300</p>
+                        <a href="ensaymada.html" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="confectionery">
+            <h2 class="section-title">Available Confectionery Products</h2>
+            <div class="product-grid">
+                <div class="product-card" data-id="cookies">
+                    <img src="img/choco-chip.png" alt="Cookies" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Chocolate Chip Cookies</h3>
+                        <p class="product-price">₱140-280</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="product-card" data-id="revel-bars">
+                    <img src="img/revel-bars.png" alt="Revel Bars" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Revel Bars</h3>
+                        <p class="product-price">₱300</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Inventory Updates</h2>
+            <div class="form-container">
+                <p style="margin-bottom: 20px;">Want to be notified when we restock your favorite products? Sign up for inventory alerts!</p>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-interest">Products You're Interested In</label>
+                        <select id="product-interest" name="product-interest" class="form-control" multiple required>
+                            <option value="wheat-bread">Pastry</option>
+                            <option value="sweet-pastry">Confectionery</option>
+                        </select>
+                        <small style="display: block; margin-top: 5px; color: #666;">Hold Ctrl (or Cmd on Mac) to select multiple options</small>
+                    </div>
+                    <button type="submit" class="btn">Sign Up for Alerts</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Sweet Treats by Krish</h3>
+                    <p>Bringing sweetness to your life with our handcrafted desserts and treats.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="sweet-treats-website.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Sweet Treats by Krish. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+	
+	<div id="cartPopup" class="cart-popup-overlay" style="display:none;">
+	  <div class="cart-popup">
+		<button class="close-cart" id="closeCartPopup">&times;</button>
+		<h3>Your Cart</h3>
+		<ul id="popupCartItems"></ul>
+		<div class="cart-popup-total">
+		  Total: ₱<span id="popupCartTotal">0.00</span>
+		</div>
+		<div class="cart-popup-notes">
+		  <label for="cartNotes">Personal Notes:</label>
+		  <textarea id="cartNotes" rows="3" placeholder="Add any notes or instructions here..."></textarea>
+		</div>
+		<button id="popupCheckoutBtn" class="checkout-btn">Checkout</button>
+	  </div>
+	</div>
+</body>
+</html>

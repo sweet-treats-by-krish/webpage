@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Sweet Treats by Krish</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/sweet-treats-css.css">
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+    <style>
+        .checkout-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+        }
+
+        .checkout-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            color: #d4659b;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            font-weight: 600;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #d4659b;
+            box-shadow: 0 0 0 3px rgba(212, 101, 155, 0.1);
+        }
+
+        .checkout-summary {
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-image {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .item-quantity {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .item-price {
+            font-weight: 600;
+            color: #d4659b;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #d4659b;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .payment-option {
+            position: relative;
+        }
+
+        .payment-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .payment-option label {
+            display: block;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .payment-option input[type="radio"]:checked + label {
+            border-color: #d4659b;
+            background: rgba(212, 101, 155, 0.1);
+            color: #d4659b;
+        }
+
+        .payment-option i {
+            font-size: 24px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .payment-details {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .payment-details.active {
+            display: block;
+        }
+
+        .btn-checkout {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #d4659b, #b8436e);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-checkout:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 101, 155, 0.3);
+        }
+
+        .btn-checkout:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            opacity: 0.7;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .empty-cart i {
+            font-size: 64px;
+            color: #d4659b;
+            margin-bottom: 20px;
+        }
+
+        .btn-continue-shopping {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #d4659b;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-continue-shopping:hover {
+            background: #b8436e;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border-left-color: #28a745;
+        }
+
+        .alert-danger {
+            background: #f8d7da;
+            color: #721c24;
+            border-left-color: #dc3545;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #d4659b;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Sweet Treats <span>by Krish</span></div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="sweet-treats-website.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contacts</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="login.html">Login / Sign Up</a></li>
+                    <li><a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i> 
+                        <span class="cart-count">0</span>
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <div id="checkoutAlerts"></div>
+        
+        <div id="emptyCartSection" class="empty-cart" style="display: none;">
+            <i class="fas fa-shopping-cart"></i>
+            <h2>Your cart is empty</h2>
+            <p>Add some delicious treats to your cart before checking out!</p>
+            <a href="products.html" class="btn-continue-shopping">Continue Shopping</a>
+        </div>
+
+        <div id="checkoutContent" class="checkout-container">
+            <div class="checkout-form">
+                <div class="checkout-section">
+                    <h2 class="section-title"><i class="fas fa-truck"></i> Delivery Information</h2>
+                    <form id="checkoutForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Street Address *</label>
+                            <input type="text" id="address" class="form-control" placeholder="House number and street name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="deliveryNotes">Delivery Notes (Optional)</label>
+                            <textarea id="deliveryNotes" class="form-control" rows="3" placeholder="Any special instructions for delivery..."></textarea>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="checkout-section">
+                    <h2 class="section-title"><i class="fas fa-credit-card"></i> Payment Method</h2>
+                    
+                    <div class="payment-methods">
+                        <div class="payment-option">
+                            <input type="radio" id="cod" name="paymentMethod" value="cod" checked>
+                            <label for="cod">
+                                <i class="fas fa-money-bill-wave"></i>
+                                Cash on Delivery
+                            </label>
+                        </div>
+                        <div class="payment-option">
+                            <input type="radio" id="gcash" name="paymentMethod" value="gcash">
+                            <label for="gcash">
+                                <i class="fas fa-mobile-alt"></i>
+                                GCash
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="codDetails" class="payment-details active">
+                        <p style="margin: 0; color: #28a745;"><i class="fas fa-info-circle" style="margin-right: 5px;"></i> You will pay in cash when your order is delivered to your doorstep.</p>
+                    </div>
+
+                    <div id="gcashDetails" class="payment-details">
+                        <div class="form-group">
+                            <label for="gcashNumber">GCash Number</label>
+                            <input type="tel" id="gcashNumber" class="form-control" placeholder="09XX XXX XXXX">
+                        </div>
+                        <p style="margin: 0; font-size: 14px; color: #6c757d;"><small>You will receive payment instructions via SMS after placing your order.</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-summary">
+                <div class="checkout-section">
+                    <h2 class="section-title"><i class="fas fa-receipt"></i> Order Summary</h2>
+                    
+                    <div id="orderItems">
+                    </div>
+
+                    <div id="cartNotes" style="margin: 20px 0; padding: 15px; background: #f9f9f9; border-radius: 8px; display: none;">
+                        <h4 style="margin: 0 0 10px 0; color: #666; font-size: 14px;">Personal Notes:</h4>
+                        <p id="cartNotesText" style="margin: 0; font-style: italic; color: #666;"></p>
+                    </div>
+
+                    <div class="order-summary">
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">₱0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Delivery Fee:</span>
+                            <span id="deliveryFee">₱50.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span><strong>Total:</strong></span>
+                            <span id="totalAmount"><strong>₱0.00</strong></span>
+                        </div>
+                    </div>
+
+                    <button id="placeOrderBtn" class="btn-checkout">
+                        <i class="fas fa-check-circle" style="margin-right: 8px;"></i>
+                        Place Order
+                    </button>
+
+                    <div class="security-badges">
+                        <i class="fas fa-lock" title="Secure Checkout"></i>
+                        <i class="fas fa-shield-alt" title="Data Protection"></i>
+                        <i class="fas fa-truck" title="Fast Delivery"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Sweet Treats by Krish</h3>
+                    <p>Bringing sweetness to your life with our handcrafted desserts and treats.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="sweet-treats-website.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Sweet Treats by Krish. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div id="orderSuccessModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); z-index:2000; justify-content:center; align-items:center;">
+        <div style="background:white; border-radius:12px; max-width:400px; width:90%; padding:32px 24px; text-align:center; box-shadow:0 4px 24px rgba(0,0,0,0.15);">
+            <i class="fas fa-check-circle" style="font-size:48px; color:#28a745; margin-bottom:16px;"></i>
+            <h2 style="margin:0 0 12px 0; color:#28a745;">Order Placed!</h2>
+            <p style="color:#333; margin-bottom:24px;">Thank you for your order.<br>You will receive a confirmation email shortly.</p>
+            <button id="orderSuccessHomeBtn" style="padding:12px 32px; background:#d4659b; color:white; border:none; border-radius:8px; font-size:16px; font-weight:600; cursor:pointer;">Go to Home</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCheckout();
+        });
+
+        function initializeCheckout() {
+            if (!window.SweetTreatsCart) {
+                setTimeout(initializeCheckout, 100);
+                return;
+            }
+
+            const validation = window.SweetTreatsCart.validateCartForCheckout();
+            
+            if (!validation.valid) {
+                showEmptyCart();
+                return;
+            }
+
+            displayCartItems();
+            setupPaymentMethodHandlers();
+            setupFormValidation();
+            
+            displayCartNotes();
+        }
+
+        function showEmptyCart() {
+            document.getElementById('emptyCartSection').style.display = 'block';
+            document.getElementById('checkoutContent').style.display = 'none';
+        }
+
+        function displayCartItems() {
+            const cartData = window.SweetTreatsCart.getCartData();
+            const orderItemsContainer = document.getElementById('orderItems');
+            
+            if (!cartData.items || cartData.items.length === 0) {
+                showEmptyCart();
+                return;
+            }
+
+            orderItemsContainer.innerHTML = '';
+
+            cartData.items.forEach(item => {
+                const orderItem = document.createElement('div');
+                orderItem.className = 'order-item';
+                orderItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-quantity">Qty: ${item.quantity}</div>
+                    </div>
+                    <div class="item-price">₱${(item.price * item.quantity).toFixed(2)}</div>
+                `;
+                orderItemsContainer.appendChild(orderItem);
+            });
+
+            updateOrderSummary(cartData);
+        }
+
+        function updateOrderSummary(cartData) {
+            const subtotal = cartData.total;
+            const deliveryFee = 50;
+            const total = subtotal + deliveryFee;
+
+            document.getElementById('subtotal').textContent = `₱${subtotal.toFixed(2)}`;
+            document.getElementById('deliveryFee').textContent = `₱${deliveryFee.toFixed(2)}`;
+            document.getElementById('totalAmount').textContent = `₱${total.toFixed(2)}`;
+        }
+
+        function displayCartNotes() {
+            if (window.cartNotes && window.cartNotes.trim()) {
+                document.getElementById('cartNotes').style.display = 'block';
+                document.getElementById('cartNotesText').textContent = window.cartNotes;
+            }
+        }
+
+        function setupPaymentMethodHandlers() {
+            const paymentOptions = document.querySelectorAll('input[name="paymentMethod"]');
+            
+            paymentOptions.forEach(option => {
+                option.addEventListener('change', function() {
+                    document.querySelectorAll('.payment-details').forEach(detail => {
+                        detail.style.display = 'none';
+                        detail.classList.remove('active');
+                    });
+                    
+                    const selectedDetails = document.getElementById(this.value + 'Details');
+                    if (selectedDetails) {
+                        selectedDetails.style.display = 'block';
+                        selectedDetails.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        function setupFormValidation() {
+            const form = document.getElementById('checkoutForm');
+            const placeOrderBtn = document.getElementById('placeOrderBtn');
+            
+            placeOrderBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (validateForm()) {
+                    processOrder();
+                }
+            });
+        }
+
+        function validateForm() {
+            const requiredFields = document.querySelectorAll('#checkoutForm [required]');
+            let isValid = true;
+
+            document.querySelectorAll('.form-control').forEach(field => {
+                field.style.borderColor = '#e0e0e0';
+            });
+
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.style.borderColor = '#dc3545';
+                    isValid = false;
+                }
+            });
+
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email.value && !emailRegex.test(email.value)) {
+                email.style.borderColor = '#dc3545';
+                isValid = false;
+            }
+
+            const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked').value;
+            if (selectedPayment === 'gcash') {
+                const gcashNumber = document.getElementById('gcashNumber');
+                if (!gcashNumber.value.trim()) {
+                    gcashNumber.style.borderColor = '#dc3545';
+                    isValid = false;
+                }
+            }
+
+            if (!isValid) {
+                showAlert('Please fill in all required fields correctly.', 'danger');
+            }
+
+            return isValid;
+        }
+
+        function processOrder() {
+            document.getElementById('loadingOverlay').style.display = 'flex';
+            
+            const placeOrderBtn = document.getElementById('placeOrderBtn');
+            placeOrderBtn.disabled = true;
+            placeOrderBtn.textContent = 'Processing...';
+
+            setTimeout(() => {
+                const orderData = collectOrderData();
+                
+                window.SweetTreatsCart.clearCart();
+                
+                window.cartNotes = '';
+                
+                document.getElementById('loadingOverlay').style.display = 'none';
+                
+                showOrderSuccessModal();
+                
+            }, 2000);
+        }
+
+        function showOrderSuccessModal() {
+            const modal = document.getElementById('orderSuccessModal');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+
+            const homeBtn = document.getElementById('orderSuccessHomeBtn');
+            homeBtn.onclick = function() {
+                window.location.href = 'sweet-treats-website.html';
+            };
+
+            modal.onclick = function(e) {
+                if (e.target === modal) {
+                    window.location.href = 'sweet-treats-website.html';
+                }
+            };
+        }
+
+        function collectOrderData() {
+            const form = document.getElementById('checkoutForm');
+            const formData = new FormData(form);
+            const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked').value;
+            
+            const orderData = {
+                customer: {
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    address: document.getElementById('address').value,
+                    deliveryNotes: document.getElementById('deliveryNotes').value
+                },
+                payment: {
+                    method: selectedPayment
+                },
+                items: window.SweetTreatsCart.getCartData().items,
+                total: parseFloat(document.getElementById('totalAmount').textContent.replace('₱', '')),
+                orderDate: new Date().toISOString(),
+                cartNotes: window.cartNotes || ''
+            };
+
+            if (selectedPayment === 'gcash') {
+                orderData.payment.gcashNumber = document.getElementById('gcashNumber').value;
+            }
+
+            console.log('Order Data:', orderData);
+            
+            return orderData;
+        }
+
+        function showAlert(message, type) {
+            const alertsContainer = document.getElementById('checkoutAlerts');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'}" style="margin-right: 8px;"></i>
+                ${message}
+            `;
+            
+            alertsContainer.innerHTML = '';
+            alertsContainer.appendChild(alert);
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            if (type !== 'success') {
+                setTimeout(() => {
+                    alert.remove();
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Sweet Treats by Krish</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/sweet-treats-css.css">
+    <script src="js/cart.js" defer></script><script src="js/app.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Sweet Treats <span>by Krish</span></div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="sweet-treats-website.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contacts</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="login.html">Login / Sign Up</a></li>
+                    <li><a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i> 
+                        <span class="cart-count">0</span>
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-banner">
+            <h1>Our Gallery</h1>
+            <p>Take a look at our delicious creations and happy customers</p>
+        </div>
+
+        <div class="subcategory-nav">
+            <a href="#pastries" class="subcategory-link active">Pastries</a>
+            <a href="#confectionery" class="subcategory-link">Confectionery</a>
+        </div>
+
+        <section id="pastries">
+            <h2 class="section-title">Pastries</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="img/banana-walnut.png" alt="Freshly baked pastries" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/pork-floss.png" alt="Wheat bread display" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/cheese-roll.png" alt="Sweet pastry selection" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/banana-choco.png" alt="Flaky bread specialty" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/almond-roll.png" alt="Filled bread varieties" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/cinnamon-roll.png" alt="Pastry making process" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/ensaymada.png" alt="Pastry making process" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/garlic-bread.png" alt="Pastry making process" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/banana-almond.png" alt="Pastry making process" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/banana-nutty.png" alt="Pastry making process" class="gallery-img">
+                </div>
+				
+                <div class="gallery-item">
+                    <img src="img/banana-cake.png" alt="Pastry making process" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/cinnamon-roll.png" alt="Pastry making process" class="gallery-img">
+                </div>
+            </div>
+        </section>
+
+        <section id="confectionery">
+            <h2 class="section-title">Confectionery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="img/choco-chip.png" alt="Dark chocolate selection" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/brigadeiro.png" alt="Milk chocolate varieties" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/revel-bars.png" alt="Chocolate fudge display" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/brownies.png" alt="Vanilla fudge creations" class="gallery-img">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Sweet Treats by Krish</h3>
+                    <p>Bringing sweetness to your life with our handcrafted desserts and treats.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="sweet-treats-website.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Sweet Treats by Krish. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+	
+	<div id="cartPopup" class="cart-popup-overlay" style="display:none;">
+	  <div class="cart-popup">
+		<button class="close-cart" id="closeCartPopup">&times;</button>
+		<h3>Your Cart</h3>
+		<ul id="popupCartItems"></ul>
+		<div class="cart-popup-total">
+		  Total: ₱<span id="popupCartTotal">0.00</span>
+		</div>
+		<div class="cart-popup-notes">
+		  <label for="cartNotes">Personal Notes:</label>
+		  <textarea id="cartNotes" rows="3" placeholder="Add any notes or instructions here..."></textarea>
+		</div>
+		<button id="popupCheckoutBtn" class="checkout-btn">Checkout</button>
+	  </div>
+	</div>
+
+    <script>
+    // Ensure cart count and popup work on this page
+    document.addEventListener('DOMContentLoaded', function() {
+        if (window.SweetTreatsCart && typeof window.SweetTreatsCart.updateCartDisplay === 'function') {
+            window.SweetTreatsCart.updateCartDisplay();
+        }
+    });
+    </script>
+</body>
+</html>

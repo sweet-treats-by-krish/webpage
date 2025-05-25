@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Ensaymada - Sweet Treats by Krish</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/sweet-treats-css.css">
+    <script src="js/cart.js" defer></script><script src="js/app.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Sweet Treats <span>by Krish</span></div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="sweet-treats-website.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contacts</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="login.html">Login / Sign Up</a></li>
+                    <li><a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i> 
+                        <span class="cart-count">0</span>
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="breadcrumb" style="margin: 20px 0;">
+            <a href="sweet-treats-website.html">Home</a> > <a href="products.html">Products</a> > <a href="pastry.html">Pastry</a> > Premium Ensaymada
+        </div>
+
+        <div class="product-detail-container">
+            <div class="product-image-container">
+                <img src="img/ensaymada.png" alt="Premium Ensaymada" class="product-main-image" id="mainImage">
+                <div class="product-thumbnails">
+                    <img src="img/ensaymada.png" alt="Ensaymada - Image 1" class="product-thumbnail active" onclick="changeImage(this, 'img/ensaymada.png')">
+                </div>
+            </div>
+            
+            <div class="product-info-container">
+                <h1 class="product-title">Premium Ensaymada</h1>
+                <div class="product-price">₱220</div>
+                <div class="product-rating" style="margin-bottom: 20px;">
+                    ★★★★★ <span style="color: #666; margin-left: 10px;">(58 reviews)</span>
+                </div>
+                <p class="product-description">
+                    Our Premium Ensaymada is a Filipino classic made extraordinary. This soft, buttery brioche is topped with creamy buttercream, grated cheese, and sugar for the perfect balance of sweet and savory. Each bite is light, fluffy, and absolutely irresistible.
+                </p>
+                
+                <div class="product-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Category:</span>
+                        <span>Pastry</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Quantity:</span>
+                        <span>4 pieces per box</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Ingredients:</span>
+                        <span>Flour, butter, eggs, milk, sugar, yeast, salt, cheese, buttercream</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Allergens:</span>
+                        <span>Contains gluten, dairy, eggs</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Shelf Life:</span>
+                        <span>2 days at room temperature, 5 days refrigerated</span>
+                    </div>
+                </div>
+                
+                <form class="add-to-cart-form">
+                    <div class="quantity-selector">
+                        <button type="button" class="quantity-btn" onclick="decreaseQuantity()">-</button>
+                        <input type="number" class="quantity-input" id="quantity" value="1" min="1" max="10">
+                        <button type="button" class="quantity-btn" onclick="increaseQuantity()">+</button>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="cheese-amount">Cheese Amount:</label>
+                        <select id="cheese-amount" class="form-control">
+                            <option value="normal">Normal</option>
+                            <option value="extra">Extra Cheese (+₱20)</option>
+                            <option value="light">Light Cheese</option>
+                            <option value="none">No Cheese</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="sugar-level">Sugar Level:</label>
+                        <select id="sugar-level" class="form-control">
+                            <option value="normal">Normal</option>
+                            <option value="extra">Extra Sugar</option>
+                            <option value="light">Less Sugar</option>
+                        </select>
+                    </div>
+                    
+                    <button type="button" class="add-to-cart-btn" onclick="addToCart()">
+                        <span>Add to Cart</span>
+                        <span>🛒</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="product-tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="openTab('description')">Description</button>
+                <button class="tab-btn" onclick="openTab('history')">History</button>
+                <button class="tab-btn" onclick="openTab('serving')">Serving Suggestions</button>
+            </div>
+            
+            <div id="description" class="tab-content active">
+                <h3>Product Details</h3>
+                <p>Our Premium Ensaymada is made with a special brioche dough that's enriched with butter and eggs for a tender, fluffy texture. The dough undergoes a slow fermentation process to develop flavor before being shaped into spirals and baked to golden perfection. Each ensaymada is generously topped with our house-made buttercream, a dusting of sugar, and a sprinkle of grated cheese.</p>
+                <p>We use only premium ingredients, including European-style butter and high-quality cheese, to create an ensaymada that's superior to commercial versions. The result is a pastry that's rich but not heavy, sweet but balanced by the savory cheese.</p>
+            </div>
+            
+            <div id="history" class="tab-content">
+                <h3>The History of Ensaymada</h3>
+                <p>Ensaymada traces its origins to the Spanish "ensaimada," a spiral-shaped pastry from Mallorca. When the Spanish brought it to the Philippines during colonial times, it evolved to suit local tastes, becoming sweeter and richer with the addition of butter, sugar, and cheese toppings.</p>
+                <p>Traditionally served during special occasions and holidays, ensaymada has become a beloved everyday treat in Filipino culture. Our version honors this tradition while using premium ingredients and techniques to elevate the classic recipe.</p>
+            </div>
+            
+            <div id="serving" class="tab-content">
+                <h3>Serving Suggestions</h3>
+                <ul>
+                    <li>Enjoy fresh with hot chocolate or coffee for breakfast</li>
+                    <li>Warm slightly in the oven (5 minutes at 300°F) to refresh day-old ensaymada</li>
+                    <li>Pair with fresh fruit for a balanced snack</li>
+                    <li>Serve as dessert after Filipino meals</li>
+                    <li>Great for merienda (afternoon snack) with tea</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="related-products">
+            <h2 class="section-title">You May Also Like</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="img/banana-cake.png" alt="Banana Cake" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Banana Cake</h3>
+                        <p class="product-price">₱220-₱250</p>
+                        <a href="banana-cake.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/bread-roll.png" alt="Bread Roll" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Bread Roll</h3>
+                        <p class="product-price">₱240-₱260</p>
+                        <a href="bread-roll.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/cinnamon-roll.png" alt="Cinnamon Roll" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Cinnamon Rolls</h3>
+                        <p class="product-price">₱400</p>
+                        <a href="cinnamon-roll.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/brigadeiro.png" alt="Brigadeiro Cake" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Brigadeiro Cake</h3>
+                        <p class="product-price">₱160</p>
+                        <a href="brigadeiro.html" class="btn">View Product</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Sweet Treats by Krish</h3>
+                    <p>Bringing sweetness to your life with our handcrafted desserts and treats.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="sweet-treats-website.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: info@sweettreatsbykrish.com</li>
+                        <li>Phone: (123) 456-7890</li>
+                        <li>Address: 123 Bakery Lane, Sweet City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Sweet Treats by Krish. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    function changeImage(thumbnail, newImageSrc) {
+        document.getElementById('mainImage').src = newImageSrc;
+        document.querySelectorAll('.product-thumbnail').forEach(img => {
+            img.classList.remove('active');
+        });
+        thumbnail.classList.add('active');
+    }
+    function increaseQuantity() {
+        const quantityInput = document.getElementById('quantity');
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue < 10) {
+            quantityInput.value = currentValue + 1;
+        }
+    }
+    function decreaseQuantity() {
+        const quantityInput = document.getElementById('quantity');
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        }
+    }
+    function openTab(tabName) {
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.getElementById(tabName).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+    function addToCart() {
+        const quantity = parseInt(document.getElementById('quantity').value);
+        if (isNaN(quantity) || quantity < 1) {
+            alert('Please select a valid quantity.');
+            return;
+        }
+        if (!window.SweetTreatsCart) {
+            alert('Cart system not ready. Please try again in a moment.');
+            return;
+        }
+        const result = window.SweetTreatsCart.addItem(
+            'Premium Ensaymada',
+            220,
+            quantity,
+            'img/ensaymada.png'
+        );
+        if (result.success) {
+            alert(`${quantity} Premium Ensaymada(s) added to cart!`);
+        } else {
+            alert(result.message || 'Failed to add item to cart');
+        }
+    }
+    window.changeImage = changeImage;
+    window.increaseQuantity = increaseQuantity;
+    window.decreaseQuantity = decreaseQuantity;
+    window.openTab = openTab;
+    window.addToCart = addToCart;
+});
+    </script>
+	
+	<div id="cartPopup" class="cart-popup-overlay" style="display:none;">
+	  <div class="cart-popup">
+		<button class="close-cart" id="closeCartPopup">&times;</button>
+		<h3>Your Cart</h3>
+		<ul id="popupCartItems"></ul>
+		<div class="cart-popup-total">
+		  Total: ₱<span id="popupCartTotal">0.00</span>
+		</div>
+		<div class="cart-popup-notes">
+		  <label for="cartNotes">Personal Notes:</label>
+		  <textarea id="cartNotes" rows="3" placeholder="Add any notes or instructions here..."></textarea>
+		</div>
+		<button id="popupCheckoutBtn" class="checkout-btn">Checkout</button>
+	  </div>
+	</div>
+</body>
+</html>

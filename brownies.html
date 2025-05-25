@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brownies - Sweet Treats by Krish</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/sweet-treats-css.css">
+    <script src="js/cart.js" defer></script><script src="js/app.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Sweet Treats <span>by Krish</span></div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="sweet-treats-website.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contacts</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="login.html">Login / Sign Up</a></li>
+                    <li><a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i> 
+                        <span class="cart-count">0</span>
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="breadcrumb" style="margin: 20px 0;">
+            <a href="sweet-treats-website.html">Home</a> > <a href="products.html">Products</a> > <a href="confectionery.html">Confectionery</a> > Brownies
+        </div>
+
+        <div class="product-detail-container">
+            <div class="product-image-container">
+                <img src="img/brownies.png" alt="Brownies" class="product-main-image" id="mainImage">
+                <div class="product-thumbnails">
+                    <img src="img/brownies.png" alt="Brownies - Image 1" class="product-thumbnail active" onclick="changeImage(this, 'img/brownies.png')">
+                    <img src="img/brownies-alt1.jpg" alt="Brownies - Image 2" class="product-thumbnail" onclick="changeImage(this, 'img/brownies-alt1.jpg')">
+                    <img src="img/brownies-alt2.jpg" alt="Brownies - Image 3" class="product-thumbnail" onclick="changeImage(this, 'img/brownies-alt2.jpg')">
+                </div>
+            </div>
+            
+            <div class="product-info-container">
+                <h1 class="product-title">Brownies</h1>
+                <div class="product-price">₱200</div>
+                <div class="product-rating" style="margin-bottom: 20px;">
+                    ★★★★★ <span style="color: #666; margin-left: 10px;">(47 reviews)</span>
+                </div>
+                <p class="product-description">
+                    Our fudgy, decadent Brownies are made with premium dark chocolate and real butter for an intense chocolate experience. Each bite delivers a perfect balance of rich chocolate flavor with a slightly crisp top and dense, fudgy center.
+                </p>
+                
+                <div class="product-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Category:</span>
+                        <span>Confectionery</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Size:</span>
+                        <span>8x8-inch pan (9 large brownies)</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Ingredients:</span>
+                        <span>Dark chocolate, butter, sugar, eggs, flour, cocoa powder, vanilla</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Allergens:</span>
+                        <span>Contains gluten, dairy, eggs</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Shelf Life:</span>
+                        <span>5 days at room temperature, 2 weeks refrigerated</span>
+                    </div>
+                </div>
+                
+                <form class="add-to-cart-form">
+                    <div class="quantity-selector">
+                        <button type="button" class="quantity-btn" onclick="decreaseQuantity()">-</button>
+                        <input type="number" class="quantity-input" id="quantity" value="1" min="1" max="10">
+                        <button type="button" class="quantity-btn" onclick="increaseQuantity()">+</button>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="add-ins">Add-Ins (Optional):</label>
+                        <select id="add-ins" class="form-control">
+                            <option value="none">None (Classic)</option>
+                            <option value="walnuts">Walnuts</option>
+                            <option value="peanuts">Peanuts</option>
+                            <option value="marshmallow">Marshmallow Swirl</option>
+                        </select>
+                    </div>
+                    
+                    <button type="button" class="add-to-cart-btn" onclick="addToCart()">
+                        <span>Add to Cart</span>
+                        <span>🛒</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="product-tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="openTab('description')">Description</button>
+                <button class="tab-btn" onclick="openTab('serving')">Serving Suggestions</button>
+            </div>
+            
+            <div id="description" class="tab-content active">
+                <h3>Product Details</h3>
+                <p>Our brownies are made with a special blend of high-quality dark chocolate and cocoa powder for maximum chocolate flavor. The recipe has been perfected to achieve the ideal fudgy texture - dense and moist without being underbaked. The top develops a shiny, crackly crust that contrasts beautifully with the rich interior.</p>
+                <p>Available plain or with optional add-ins. For a special treat, try warming a brownie for 10 seconds in the microwave and serving with vanilla ice cream.</p>
+            </div>
+            
+            <div id="serving" class="tab-content">
+                <h3>Serving Suggestions</h3>
+                <ul>
+                    <li>Serve warm with vanilla ice cream and chocolate sauce</li>
+                    <li>Cut into small squares for a dessert platter</li>
+                    <li>Crumble over yogurt or oatmeal for breakfast</li>
+                    <li>Use as a base for brownie sundaes with your favorite toppings</li>
+                    <li>Pair with coffee or milk for an afternoon treat</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="related-products">
+            <h2 class="section-title">You May Also Like</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="img/bread-roll.png" alt="Bread Roll" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Bread Roll</h3>
+                        <p class="product-price">₱240-₱260</p>
+                        <a href="bread-roll.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/cinnamon-roll.png" alt="Cinnamon Roll" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Cinnamon Rolls</h3>
+                        <p class="product-price">₱400</p>
+                        <a href="cinnamon-roll.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/ensaymada.png" alt="Ensaymada" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Premium Ensaymada</h3>
+                        <p class="product-price">₱220</p>
+                        <a href="ensaymada.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/brownies.png" alt="Brownies" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Brownies</h3>
+                        <p class="product-price">₱200</p>
+                        <a href="brownies.html" class="btn">View Product</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Sweet Treats by Krish</h3>
+                    <p>Bringing sweetness to your life with our handcrafted desserts and treats.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="sweet-treats-website.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: info@sweettreatsbykrish.com</li>
+                        <li>Phone: (123) 456-7890</li>
+                        <li>Address: 123 Bakery Lane, Sweet City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Sweet Treats by Krish. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function changeImage(thumbnail, newImageSrc) {
+            document.getElementById('mainImage').src = newImageSrc;
+            document.querySelectorAll('.product-thumbnail').forEach(img => {
+                img.classList.remove('active');
+            });
+            thumbnail.classList.add('active');
+        }
+        function increaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue < 10) {
+                quantityInput.value = currentValue + 1;
+            }
+        }
+        function decreaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        }
+        function openTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+        function addToCart() {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            if (isNaN(quantity) || quantity < 1) {
+                alert('Please select a valid quantity.');
+                return;
+            }
+            if (!window.SweetTreatsCart) {
+                alert('Cart system not ready. Please try again in a moment.');
+                return;
+            }
+            const result = window.SweetTreatsCart.addItem(
+                'Brownies', 
+                200, 
+                quantity, 
+                'img/brownies.png'
+            );
+            if (result.success) {
+                alert(`${quantity} Brownies(s) added to cart!`);
+            } else {
+                alert(result.message || 'Failed to add item to cart');
+            }
+        }
+        // Expose functions to global scope for inline onclick handlers
+        window.changeImage = changeImage;
+        window.increaseQuantity = increaseQuantity;
+        window.decreaseQuantity = decreaseQuantity;
+        window.openTab = openTab;
+        window.addToCart = addToCart;
+    });
+    </script>
+	
+	<div id="cartPopup" class="cart-popup-overlay" style="display:none;">
+	  <div class="cart-popup">
+		<button class="close-cart" id="closeCartPopup">&times;</button>
+		<h3>Your Cart</h3>
+		<ul id="popupCartItems"></ul>
+		<div class="cart-popup-total">
+		  Total: ₱<span id="popupCartTotal">0.00</span>
+		</div>
+		<div class="cart-popup-notes">
+		  <label for="cartNotes">Personal Notes:</label>
+		  <textarea id="cartNotes" rows="3" placeholder="Add any notes or instructions here..."></textarea>
+		</div>
+		<button id="popupCheckoutBtn" class="checkout-btn">Checkout</button>
+	  </div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Sweet Treats by Krish</title>
+    <link rel="stylesheet" href="css/sweet-treats-css.css">
+    <style>
+        /* Additional styles for cart page */
+        .cart-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .cart-items {
+            margin-bottom: 30px;
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        
+        .cart-item-details {
+            flex-grow: 1;
+        }
+        
+        .cart-item-title {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .cart-item-price {
+            font-weight: bold;
+            color: #8b0000;
+        }
+        
+        .cart-item-request {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .remove-item {
+            color: #ff6b6b;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        
+        .cart-summary {
+            background-color: #fff5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .summary-total {
+            font-weight: bold;
+            font-size: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 50px 0;
+        }
+        
+        .empty-cart .btn {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Sweet Treats <span>by Krish</span></div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="sweet-treats-website.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contacts</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="login.html">Login / Sign Up</a></li>
+                    <!-- Cart link will be added here by JavaScript -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-banner">
+            <h1>Your Shopping Cart</h1>
+            <p>Review your delicious selections</p>
+        </div>
+
+        <div class="cart-container">
+            <div id="cart-content">
+                <!-- Cart items will be loaded here by JavaScript -->
+                <div class="empty-cart">
+                    <h3>Your cart is empty</h3>
+                    <p>Looks like you haven't added any sweet treats yet!</p>
+                    <a href="products.html" class="btn">Browse Products</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Sweet Treats by Krish</h3>
+                    <p>Bringing sweetness to your life with our handcrafted desserts and treats.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="sweet-treats-website.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Sweet Treats by Krish. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartContent = document.getElementById('cart-content');
+            
+            // Update cart count in navigation
+            updateCartCount();
+            
+            if (cart.length > 0) {
+                renderCartItems();
+            }
+            
+            function renderCartItems() {
+                let html = '';
+                let subtotal = 0;
+                
+                // Clear empty cart message
+                cartContent.innerHTML = '';
+                
+                // Create cart items section
+                const cartItemsSection = document.createElement('div');
+                cartItemsSection.className = 'cart-items';
+                cartItemsSection.innerHTML = '<h2 class="section-title">Your Items</h2>';
+                
+                // Add each cart item
+                cart.forEach((item, index) => {
+                    // Extract numeric price (remove currency symbol and range if exists)
+                    let priceText = item.price.replace('₱', '');
+                    // Handle price ranges (take the first price if there's a range)
+                    if (priceText.includes('-')) {
+                        priceText = priceText.split('-')[0];
+                    }
+                    const price = parseFloat(priceText) || 0;
+                    subtotal += price;
+                    
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    itemElement.innerHTML = `
+                        <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+                        <div class="cart-item-details">
+                            <h3 class="cart-item-title">${item.name}</h3>
+                            <p class="cart-item-price">${item.price}</p>
+                            ${item.request ? `<p class="cart-item-request">Special Request: ${item.request}</p>` : ''}
+                        </div>
+                        <span class="remove-item" data-index="${index}">Remove</span>
+                    `;
+                    cartItemsSection.appendChild(itemElement);
+                });
+                
+                cartContent.appendChild(cartItemsSection);
+                
+                // Create cart summary
+                const summarySection = document.createElement('div');
+                summarySection.className = 'cart-summary';
+                summarySection.innerHTML = `
+                    <h2 class="section-title">Order Summary</h2>
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span>₱${subtotal.toFixed(2)}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Delivery Fee</span>
+                        <span>₱0.00</span>
+                    </div>
+                    <div class="summary-row summary-total">
+                        <span>Total</span>
+                        <span>₱${subtotal.toFixed(2)}</span>
+                    </div>
+                    <div style="margin-top: 30px; text-align: center;">
+                        <a href="checkout.html" class="btn" style="display: block;">Proceed to Checkout</a>
+                        <a href="products.html" style="display: inline-block; margin-top: 15px;">Continue Shopping</a>
+                    </div>
+                `;
+                
+                cartContent.appendChild(summarySection);
+                
+                // Add event listeners to remove buttons
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        removeItemFromCart(index);
+                    });
+                });
+            }
+            
+            function removeItemFromCart(index) {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                
+                if (cart.length > 0) {
+                    renderCartItems();
+                } else {
+                    cartContent.innerHTML = `
+                        <div class="empty-cart">
+                            <h3>Your cart is empty</h3>
+                            <p>Looks like you haven't added any sweet treats yet!</p>
+                            <a href="products.html" class="btn">Browse Products</a>
+                        </div>
+                    `;
+                }
+            }
+            
+            function updateCartCount() {
+                const cartCount = document.querySelector('.cart-count');
+                if (cartCount) {
+                    cartCount.textContent = cart.length;
+                } else {
+                    // Create cart count if it doesn't exist
+                    const nav = document.querySelector('nav');
+                    const cartLink = document.createElement('a');
+                    cartLink.href = 'cart.html';
+                    cartLink.className = 'cart-link';
+                    cartLink.innerHTML = `Cart (<span class="cart-count">${cart.length}</span>)`;
+                    nav.querySelector('ul').appendChild(cartLink);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

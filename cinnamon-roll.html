@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinnamon Rolls - Sweet Treats by Krish</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/sweet-treats-css.css">
+    <script src="js/cart.js" defer></script><script src="js/app.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Sweet Treats <span>by Krish</span></div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="sweet-treats-website.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contacts</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="login.html">Login / Sign Up</a></li>
+                    <li><a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i> 
+                        <span class="cart-count">0</span>
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="breadcrumb" style="margin: 20px 0;">
+            <a href="sweet-treats-website.html">Home</a> > <a href="products.html">Products</a> > <a href="pastry.html">Pastry</a> > Cinnamon Rolls
+        </div>
+
+        <div class="product-detail-container">
+            <div class="product-image-container">
+                <img src="img/cinnamon-roll.png" alt="Cinnamon Rolls" class="product-main-image" id="mainImage">
+                <div class="product-thumbnails">
+                    <img src="img/cinnamon-roll.png" alt="Cinnamon Rolls - Image 1" class="product-thumbnail active" onclick="changeImage(this, 'img/cinnamon-roll.png')">
+                </div>
+            </div>
+            
+            <div class="product-info-container">
+                <h1 class="product-title">Cinnamon Rolls with Walnuts</h1>
+                <div class="product-price">₱400</div>
+                <div class="product-rating" style="margin-bottom: 20px;">
+                    ★★★★★ <span style="color: #666; margin-left: 10px;">(42 reviews)</span>
+                </div>
+                <p class="product-description">
+                    Our famous Cinnamon Rolls are made with a rich, buttery dough, filled with cinnamon sugar and crunchy walnuts, then topped with cream cheese icing. These indulgent treats are perfect for breakfast, brunch, or dessert.
+                </p>
+                
+                <div class="product-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Category:</span>
+                        <span>Pastry</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Size:</span>
+                        <span>6 large rolls per pan</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Ingredients:</span>
+                        <span>Flour, butter, milk, sugar, cinnamon, walnuts, cream cheese, vanilla</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Allergens:</span>
+                        <span>Contains gluten, dairy, eggs, tree nuts</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Shelf Life:</span>
+                        <span>2 days at room temperature, 5 days refrigerated</span>
+                    </div>
+                </div>
+                
+                <form class="add-to-cart-form">
+                    <div class="quantity-selector">
+                        <button type="button" class="quantity-btn" onclick="decreaseQuantity()">-</button>
+                        <input type="number" class="quantity-input" id="quantity" value="1" min="1" max="10">
+                        <button type="button" class="quantity-btn" onclick="increaseQuantity()">+</button>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="icing-amount">Icing Amount:</label>
+                        <select id="icing-amount" class="form-control">
+                            <option value="normal">Normal</option>
+                            <option value="extra">Extra</option>
+                            <option value="light">Light</option>
+                            <option value="none">None</option>
+                        </select>
+                    </div>
+                    
+                    <button type="button" class="add-to-cart-btn" onclick="addToCart()">
+                        <span>Add to Cart</span>
+                        <span>🛒</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="product-tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="openTab('description')">Description</button>
+                <button class="tab-btn" onclick="openTab('heating')">Heating Instructions</button>
+            </div>
+            
+            <div id="description" class="tab-content active">
+                <h3>Product Details</h3>
+                <p>Our Cinnamon Rolls are made with a special brioche-style dough that's rich and tender. The filling features premium cinnamon and brown sugar, plus crunchy walnuts for texture contrast. Each roll is generously topped with our signature cream cheese icing that perfectly balances the sweetness.</p>
+                <p>Available with or without walnuts upon request. For special occasions, we can add raisins or other dried fruits to the filling. These rolls freeze well - simply thaw and warm before serving.</p>
+            </div>
+            
+            <div id="heating" class="tab-content">
+                <h3>Heating Instructions</h3>
+                <ul>
+                    <li><strong>Oven:</strong> Preheat to 350°F. Place rolls on baking sheet and cover loosely with foil. Heat for 10-12 minutes until warm throughout.</li>
+                    <li><strong>Microwave:</strong> Place roll on microwave-safe plate. Heat for 15-20 seconds. Be careful not to overheat as icing may melt.</li>
+                    <li><strong>From Frozen:</strong> Thaw overnight in refrigerator. Warm as above or microwave for 30-45 seconds.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="related-products">
+            <h2 class="section-title">You May Also Like</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="img/bread-roll.png" alt="Bread Roll" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Bread Roll</h3>
+                        <p class="product-price">₱240-₱260</p>
+                        <a href="bread-roll.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/cinnamon-roll.png" alt="Cinnamon Roll" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Cinnamon Rolls</h3>
+                        <p class="product-price">₱400</p>
+                        <a href="cinnamon-roll.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/ensaymada.png" alt="Ensaymada" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Premium Ensaymada</h3>
+                        <p class="product-price">₱220</p>
+                        <a href="ensaymada.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/brownies.png" alt="Brownies" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Brownies</h3>
+                        <p class="product-price">₱200</p>
+                        <a href="brownies.html" class="btn">View Product</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Sweet Treats by Krish</h3>
+                    <p>Bringing sweetness to your life with our handcrafted desserts and treats.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="sweet-treats-website.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: info@sweettreatsbykrish.com</li>
+                        <li>Phone: (123) 456-7890</li>
+                        <li>Address: 123 Bakery Lane, Sweet City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Sweet Treats by Krish. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    function changeImage(thumbnail, newImageSrc) {
+        document.getElementById('mainImage').src = newImageSrc;
+        document.querySelectorAll('.product-thumbnail').forEach(img => {
+            img.classList.remove('active');
+        });
+        thumbnail.classList.add('active');
+    }
+    function increaseQuantity() {
+        const quantityInput = document.getElementById('quantity');
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue < 10) {
+            quantityInput.value = currentValue + 1;
+        }
+    }
+    function decreaseQuantity() {
+        const quantityInput = document.getElementById('quantity');
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        }
+    }
+    function openTab(tabName) {
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.getElementById(tabName).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+    function addToCart() {
+        const quantity = parseInt(document.getElementById('quantity').value);
+        if (isNaN(quantity) || quantity < 1) {
+            alert('Please select a valid quantity.');
+            return;
+        }
+        if (!window.SweetTreatsCart) {
+            alert('Cart system not ready. Please try again in a moment.');
+            return;
+        }
+        const result = window.SweetTreatsCart.addItem(
+            'Cinnamon Roll',
+            400,
+            quantity,
+            'img/cinnamon-roll.png'
+        );
+        if (result.success) {
+            alert(`${quantity} Cinnamon Roll(s) added to cart!`);
+        } else {
+            alert(result.message || 'Failed to add item to cart');
+        }
+    }
+    window.changeImage = changeImage;
+    window.increaseQuantity = increaseQuantity;
+    window.decreaseQuantity = decreaseQuantity;
+    window.openTab = openTab;
+    window.addToCart = addToCart;
+});
+    </script>
+	
+	<div id="cartPopup" class="cart-popup-overlay" style="display:none;">
+	  <div class="cart-popup">
+		<button class="close-cart" id="closeCartPopup">&times;</button>
+		<h3>Your Cart</h3>
+		<ul id="popupCartItems"></ul>
+		<div class="cart-popup-total">
+		  Total: ₱<span id="popupCartTotal">0.00</span>
+		</div>
+		<div class="cart-popup-notes">
+		  <label for="cartNotes">Personal Notes:</label>
+		  <textarea id="cartNotes" rows="3" placeholder="Add any notes or instructions here..."></textarea>
+		</div>
+		<button id="popupCheckoutBtn" class="checkout-btn">Checkout</button>
+	  </div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korean Cream Cheese Garlic Bread - Sweet Treats by Krish</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/sweet-treats-css.css">
+    <script src="js/cart.js" defer></script><script src="js/app.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Sweet Treats <span>by Krish</span></div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="sweet-treats-website.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contacts</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="login.html">Login / Sign Up</a></li>
+                    <li><a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i> 
+                        <span class="cart-count">0</span>
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="breadcrumb" style="margin: 20px 0;">
+            <a href="sweet-treats-website.html">Home</a> > <a href="products.html">Products</a> > <a href="pastry.html">Pastry</a> > Korean Cream Cheese Garlic Bread
+        </div>
+
+        <div class="product-detail-container">
+            <div class="product-image-container">
+                <img src="img/korean-garlic-bread.jpg" alt="Korean Cream Cheese Garlic Bread" class="product-main-image" id="mainImage">
+                <div class="product-thumbnails">
+                    <img src="img/korean-garlic-bread.jpg" alt="Korean Garlic Bread - Image 1" class="product-thumbnail active" onclick="changeImage(this, 'img/korean-garlic-bread.jpg')">
+                </div>
+            </div>
+            
+            <div class="product-info-container">
+                <h1 class="product-title">Korean Cream Cheese Garlic Bread</h1>
+                <div class="product-price">₱300 (4pcs)</div>
+                <div class="product-rating" style="margin-bottom: 20px;">
+                    ★★★★★ <span style="color: #666; margin-left: 10px;">(72 reviews)</span>
+                </div>
+                <p class="product-description">
+                    Experience the viral Korean sensation! Our Cream Cheese Garlic Bread features soft milk bread stuffed with sweet cream cheese filling, dipped in garlic butter sauce, and baked to golden perfection. The perfect combination of sweet, savory, and garlicky flavors in every bite.
+                </p>
+                
+                <div class="product-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Category:</span>
+                        <span>Pastry</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Quantity:</span>
+                        <span>4 pieces per box</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Ingredients:</span>
+                        <span>Milk bread, cream cheese, garlic, butter, condensed milk, whipping cream, parsley, sugar, salt</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Allergens:</span>
+                        <span>Contains gluten, dairy, eggs</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Shelf Life:</span>
+                        <span>Best consumed same day, 2 days refrigerated</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Weight:</span>
+                        <span>Approx. 80g per piece</span>
+                    </div>
+                </div>
+                
+                <form class="add-to-cart-form">
+                    <div class="quantity-selector">
+                        <button type="button" class="quantity-btn" onclick="decreaseQuantity()">-</button>
+                        <input type="number" class="quantity-input" id="quantity" value="1" min="1" max="10">
+                        <button type="button" class="quantity-btn" onclick="increaseQuantity()">+</button>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="garlic-level">Garlic Intensity:</label>
+                        <select id="garlic-level" class="form-control">
+                            <option value="normal">Normal</option>
+                            <option value="extra">Extra Garlic (+₱20)</option>
+                            <option value="light">Light Garlic</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="spice-level">Spice Level:</label>
+                        <select id="spice-level" class="form-control">
+                            <option value="none">No Spice</option>
+                            <option value="mild">Mild</option>
+                            <option value="medium">Medium (+₱15)</option>
+                            <option value="spicy">Spicy (+₱30)</option>
+                        </select>
+                    </div>
+                    
+                    <button type="button" class="add-to-cart-btn" onclick="addToCart()">
+                        <span>Add to Cart</span>
+                        <span>🛒</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="product-tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="openTab('description')">Description</button>
+                <button class="tab-btn" onclick="openTab('origin')">Origin</button>
+                <button class="tab-btn" onclick="openTab('heating')">Heating Instructions</button>
+            </div>
+            
+            <div id="description" class="tab-content active">
+                <h3>Product Details</h3>
+                <p>Our Korean Cream Cheese Garlic Bread starts with soft, pillowy milk bread that's cut into wedges but kept connected at the base. Each piece is generously filled with our sweet cream cheese mixture, then dipped in a luxurious garlic butter sauce made with real garlic, butter, and a touch of condensed milk for sweetness.</p>
+                <p>The bread is then baked until the exterior becomes slightly crisp while the inside remains soft and gooey. Finished with a sprinkle of parsley, these addictive treats offer the perfect balance of sweet cream cheese and savory garlic flavors.</p>
+            </div>
+            
+            <div id="origin" class="tab-content">
+                <h3>The Korean Garlic Bread Phenomenon</h3>
+                <p>Korean Cream Cheese Garlic Bread became a viral sensation in South Korea before spreading worldwide. Originating from small bakeries in Seoul, this innovative take on garlic bread combines Western and Korean baking techniques.</p>
+                <p>What sets it apart is the sweet cream cheese filling that contrasts beautifully with the garlic butter coating. The bread's unique flower-like shape isn't just for looks - it creates more surface area for the delicious garlic butter to coat.</p>
+            </div>
+            
+            <div id="heating" class="tab-content">
+                <h3>Heating Instructions</h3>
+                <p>For the best experience, we recommend enjoying our Korean Cream Cheese Garlic Bread warm. Here's how to heat it perfectly:</p>
+                <ul>
+                    <li><strong>Oven:</strong> Preheat to 350°F (180°C). Place bread on baking sheet and heat for 5-7 minutes until warm and slightly crispy.</li>
+                    <li><strong>Air Fryer:</strong> Heat at 320°F (160°C) for 3-4 minutes.</li>
+                    <li><strong>Microwave:</strong> Heat for 15-20 seconds (note: this will soften the crust).</li>
+                    <li><strong>From Refrigerated:</strong> Add 1-2 minutes to heating time.</li>
+                </ul>
+                <p>For food safety, consume within 2 hours of heating if left at room temperature.</p>
+            </div>
+        </div>
+        
+        <div class="related-products">
+            <h2 class="section-title">You May Also Like</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="img/ensaymada.png" alt="Premium Ensaymada" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Premium Ensaymada</h3>
+                        <p class="product-price">₱220</p>
+                        <a href="ensaymada.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/bread-roll.png" alt="Bread Roll" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Bread Roll</h3>
+                        <p class="product-price">₱240-₱260</p>
+                        <a href="bread-roll.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/cinnamon-roll.png" alt="Cinnamon Roll" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Cinnamon Rolls</h3>
+                        <p class="product-price">₱400</p>
+                        <a href="cinnamon-roll.html" class="btn">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/garlic-knots.jpg" alt="Garlic Knots" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Garlic Knots</h3>
+                        <p class="product-price">₱180</p>
+                        <a href="garlic-knots.html" class="btn">View Product</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Sweet Treats by Krish</h3>
+                    <p>Bringing sweetness to your life with our handcrafted desserts and treats.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="sweet-treats-website.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: info@sweettreatsbykrish.com</li>
+                        <li>Phone: (123) 456-7890</li>
+                        <li>Address: 123 Bakery Lane, Sweet City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Sweet Treats by Krish. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    function changeImage(thumbnail, newImageSrc) {
+        document.getElementById('mainImage').src = newImageSrc;
+        document.querySelectorAll('.product-thumbnail').forEach(img => {
+            img.classList.remove('active');
+        });
+        thumbnail.classList.add('active');
+    }
+    function increaseQuantity() {
+        const quantityInput = document.getElementById('quantity');
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue < 10) {
+            quantityInput.value = currentValue + 1;
+        }
+    }
+    function decreaseQuantity() {
+        const quantityInput = document.getElementById('quantity');
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        }
+    }
+    function openTab(tabName) {
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.getElementById(tabName).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+    function addToCart() {
+        const quantity = parseInt(document.getElementById('quantity').value);
+        if (isNaN(quantity) || quantity < 1) {
+            alert('Please select a valid quantity.');
+            return;
+        }
+        if (!window.SweetTreatsCart) {
+            alert('Cart system not ready. Please try again in a moment.');
+            return;
+        }
+        const result = window.SweetTreatsCart.addItem(
+            'Korean Garlic Bread',
+            280,
+            quantity,
+            'img/korean-garlic-bread.png'
+        );
+        if (result.success) {
+            alert(`${quantity} Korean Garlic Bread(s) added to cart!`);
+        } else {
+            alert(result.message || 'Failed to add item to cart');
+        }
+    }
+    window.changeImage = changeImage;
+    window.increaseQuantity = increaseQuantity;
+    window.decreaseQuantity = decreaseQuantity;
+    window.openTab = openTab;
+    window.addToCart = addToCart;
+});
+    </script>
+	
+	<div id="cartPopup" class="cart-popup-overlay" style="display:none;">
+	  <div class="cart-popup">
+		<button class="close-cart" id="closeCartPopup">&times;</button>
+		<h3>Your Cart</h3>
+		<ul id="popupCartItems"></ul>
+		<div class="cart-popup-total">
+		  Total: ₱<span id="popupCartTotal">0.00</span>
+		</div>
+		<div class="cart-popup-notes">
+		  <label for="cartNotes">Personal Notes:</label>
+		  <textarea id="cartNotes" rows="3" placeholder="Add any notes or instructions here..."></textarea>
+		</div>
+		<button id="popupCheckoutBtn" class="checkout-btn">Checkout</button>
+	  </div>
+	</div>
+</body>
+</html>
